@@ -5,7 +5,13 @@ import { useRouter } from 'next/router';
 import { Layout } from '../../components/Layout';
 import { CommentsBlock } from '../../components/CommentsBlock';
 import { CommentCreator } from '../../components/CommentCreator';
-import { SET_CURRENT_POST_ID, GET_CURRENT_POST_REQUESTED, SET_TITLE, SET_BODY } from '../../redux/actions/postsActions';
+import {
+    SET_CURRENT_POST_ID,
+    GET_CURRENT_POST_REQUESTED,
+    SET_TITLE,
+    SET_BODY,
+    CLEAR_UPDATE_FORM_FIELDS,
+} from '../../redux/actions/postsActions';
 import { deletePost, updatePost } from '../../api';
 import {
     Wrapper,
@@ -52,17 +58,20 @@ export default function PostIdPage() {
         setUpdateIsClicked((prevState) => !prevState);
     };
 
+    const titleIsValid = title || currentPost.title;
+    const bodyIsValid = body || currentPost.body;
+    console.log('title', titleIsValid);
+    console.log('body', bodyIsValid);
+
     const saveHandler = async () => {
-        const response = await updatePost(postId, { title, body });
+        const response = await updatePost(postId, { title: titleIsValid, body: bodyIsValid });
         if (response) {
+            dispatch({ type: CLEAR_UPDATE_FORM_FIELDS });
             setUpdateIsClicked(false);
         } else {
             return;
         }
     };
-
-    const titleIsValid = title || currentPost.title;
-    const bodyIsValid = body || currentPost.body;
 
     return (
         <Layout>

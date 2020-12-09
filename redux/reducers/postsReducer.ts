@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_CURRENT_POST, SET_CURRENT_POST_ID, SET_TITLE, SET_BODY, SET_COMMENT, SET_COMMENT_RESULT, CLEAR_COMMENT } from '../actions/postsActions';
+import { GET_POSTS, GET_CURRENT_POST, SET_CURRENT_POST_ID, SET_TITLE, SET_BODY, SET_COMMENT, SET_COMMENT_RESULT, CLEAR_COMMENT, CLEAR_UPDATE_FORM_FIELDS } from '../actions/postsActions';
 
 const initialState = {
     posts: [],
@@ -28,6 +28,8 @@ const postsReducer = (state = initialState, {type, payload}) => {
             return { ...state, commentResult: payload };
         case CLEAR_COMMENT:
             return { ...state, comment: '' };
+        case CLEAR_UPDATE_FORM_FIELDS:
+            return {...state, title: '', body: ''};
         default: return state
     }
 };
