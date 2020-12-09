@@ -70,6 +70,7 @@ export const Body = styled.p`
     background: #EAEAEA;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 `;
 
 export const EditTitle = styled.textarea`
