@@ -38,7 +38,7 @@ export default function PostIdPage() {
     useEffect(() => {
         dispatch({ type: SET_CURRENT_POST_ID, payload: postId });
         dispatch({ type: GET_CURRENT_POST_REQUESTED });
-    }, [dispatch, updateIsClicked, commentResult]);
+    }, [dispatch, updateIsClicked, commentResult, postId]);
 
     const currentPost = useSelector((store) => store.postsReducer.currentPost);
 
@@ -60,8 +60,6 @@ export default function PostIdPage() {
 
     const titleIsValid = title || currentPost.title;
     const bodyIsValid = body || currentPost.body;
-    console.log('title', titleIsValid);
-    console.log('body', bodyIsValid);
 
     const saveHandler = async () => {
         const response = await updatePost(postId, { title: titleIsValid, body: bodyIsValid });

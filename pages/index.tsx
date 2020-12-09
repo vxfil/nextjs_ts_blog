@@ -18,7 +18,7 @@ export default function Home() {
 
     return (
         <Layout>
-            <h2 style={{ textAlign: 'center' }}>Posts</h2>
+            <h2 style={{ textAlign: 'center', color: '#444444', fontWeight: 700 }}>Posts</h2>
             <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap' }}>
                 {posts.map((post: post) => {
                     return <PostPreview key={post.id} title={post.title} body={post.body} postId={post.id} />;

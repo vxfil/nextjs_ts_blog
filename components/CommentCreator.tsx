@@ -16,6 +16,7 @@ export const CommentCreator = () => {
                     dispatch({ type: SET_COMMENT, payload: event.target.value })
                 }
                 value={commentBody}
+                placeholder="Сomment here"
             />
             <CommentButton
                 disabled={
