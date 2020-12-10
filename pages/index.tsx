@@ -4,17 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { GET_POSTS_REQUESTED } from '../redux/actions/postsActions';
 import { PostPreview } from '../components/PostPreview';
+import { post } from '../interfaces';
 
 export default function Home() {
     const dispatch = useDispatch();
     useEffect(() => dispatch({ type: GET_POSTS_REQUESTED }), [dispatch]);
     const posts = useSelector((store) => store.postsReducer.posts);
-
-    interface post {
-        title: string;
-        body: string;
-        id: number;
-    }
 
     return (
         <Layout>

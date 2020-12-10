@@ -23,6 +23,7 @@ import {
     Body,
     CommentsWrapper,
 } from '../../styles/[postId]Styles';
+import { currentPost, commentResult } from '../../interfaces';
 
 export default function PostIdPage() {
     const router = useRouter();
@@ -33,14 +34,18 @@ export default function PostIdPage() {
 
     const [updateIsClicked, setUpdateIsClicked] = useState<boolean>(false);
 
-    const commentResult = useSelector((store) => store.postsReducer.commentResult);
+    const commentResult = useSelector(
+        (store: { postsReducer: { commentResult: commentResult } }) => store.postsReducer.commentResult,
+    );
 
     useEffect(() => {
         dispatch({ type: SET_CURRENT_POST_ID, payload: postId });
         dispatch({ type: GET_CURRENT_POST_REQUESTED });
     }, [dispatch, updateIsClicked, commentResult, postId]);
 
-    const currentPost = useSelector((store) => store.postsReducer.currentPost);
+    const currentPost = useSelector(
+        (store: { postsReducer: { currentPost: currentPost } }) => store.postsReducer.currentPost,
+    );
 
     const deleteHandler = async () => {
         const response = await deletePost(postId);
@@ -51,8 +56,8 @@ export default function PostIdPage() {
         }
     };
 
-    const title = useSelector((store) => store.postsReducer.title);
-    const body = useSelector((store) => store.postsReducer.body);
+    const title = useSelector((store: { postsReducer: { title: string } }) => store.postsReducer.title);
+    const body = useSelector((store: { postsReducer: { body: string } }) => store.postsReducer.body);
 
     const updateHandler = () => {
         setUpdateIsClicked((prevState) => !prevState);

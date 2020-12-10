@@ -10,11 +10,13 @@ export const CommentInput = styled.textarea`
 `;
 
 export const CommentButton = styled.button`
-    height: 30px;
-    width: 90px;
-    background-color: #32a885;
+    margin-top: 20px;
+    background: linear-gradient(100deg, rgba(73,26,204,1) 0%, rgba(94,21,149,1) 100%);
     color: #ffffff;
-    margin-top: 15px;
+    width: 90px;
+    height: 30px;
+    border-radius: 16px;
+    border: none;
 
     ${(props) =>
         props.disabled &&
@@ -25,6 +27,9 @@ export const CommentButton = styled.button`
         `}
 
     :hover {
-        background-color: #ccc;
+        background: #ccc;
+    }
+    :focus { 
+        outline: none; 
     }
 `;

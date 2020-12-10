@@ -7,7 +7,7 @@ import { CommentInput, CommentButton } from '../styles/CommentCreatorStyles';
 
 export const CommentCreator = () => {
     const dispatch = useDispatch();
-    const commentBody = useSelector((store) => store.postsReducer.comment);
+    const commentBody = useSelector((store: { postsReducer: { comment: string } }) => store.postsReducer.comment);
 
     return (
         <>

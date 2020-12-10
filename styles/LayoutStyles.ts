@@ -6,6 +6,7 @@ export const Container = styled.div`
     margin-right: auto;
     margin-left: auto;
     max-width: 1170px;
+    min-height: 690px;
 `;
 
 export const Footer = styled.footer`
@@ -16,8 +17,9 @@ export const Footer = styled.footer`
     align-items: center;
     justify-content: center;
     position: relative;
-    left: 0;
-    bottom: -98px;
+    right: 0;
+    bottom: 0;
+    margin-top: 40px;
 `;
 
 export const Content = styled.div`

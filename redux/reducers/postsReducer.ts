@@ -1,6 +1,16 @@
-import { GET_POSTS, GET_CURRENT_POST, SET_CURRENT_POST_ID, SET_TITLE, SET_BODY, SET_COMMENT, SET_COMMENT_RESULT, CLEAR_COMMENT, CLEAR_UPDATE_FORM_FIELDS } from '../actions/postsActions';
+import { GET_POSTS,
+    GET_CURRENT_POST, 
+    SET_CURRENT_POST_ID, 
+    SET_TITLE, SET_BODY, 
+    SET_COMMENT, SET_COMMENT_RESULT, 
+    CLEAR_COMMENT, 
+    CLEAR_UPDATE_FORM_FIELDS
+} from '../actions/postsActions';
 
-const initialState = {
+import { initState } from '../../interfaces'
+
+
+const initialState: initState = {
     posts: [],
     currentPostId: null,
     currentPost: {},
